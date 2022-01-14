@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="432.0" prefWidth="320" styleClass="Background" stylesheets="@style.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="proyectobd.FXMLDocumentController">
+    <children>
+        <Label fx:id="label" layoutX="84.0" layoutY="37.0" minHeight="16" minWidth="69" prefHeight="177.0" prefWidth="151.0" styleClass="body" stylesheets="@style.css" />
+      <VBox layoutX="84.0" layoutY="231.0" prefHeight="177.0" prefWidth="153.0">
+         <children>
+            <TextField fx:id="txtUsuario" alignment="CENTER" promptText="Username">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </TextField>
+            <PasswordField fx:id="txtContraseña" alignment="CENTER" promptText="Password">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </PasswordField>
+            <Button fx:id="btnEntrar" mnemonicParsing="false" onAction="#entrar" prefHeight="25.0" prefWidth="151.0" styleClass="Button" stylesheets="@style.css" text="ENTRAR">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnEntrar" mnemonicParsing="false" onAction="#Registrarse" prefHeight="25.0" prefWidth="153.0" styleClass="BRegistrar" stylesheets="@style.css" text="REGISTRAR">
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </Button>
+            <Label alignment="CENTER" prefHeight="15.0" prefWidth="153.0" text="Developed @fernan" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
+         </children>
+      </VBox>
+    </children>
+</AnchorPane>
