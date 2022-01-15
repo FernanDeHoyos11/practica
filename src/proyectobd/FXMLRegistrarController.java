@@ -69,7 +69,13 @@ public class FXMLRegistrarController implements Initializable {
         Nivel = "Usuario";
         Estado= "Activo";
 
+        
+         if(!cedula.equals("") && !nombre.equals("") && !apellido.equals("") && 
+                 
+                    !correo.equals("") && !username.equals("") && !pass.equals("")){
+                
         try {
+           
             Connection cn = Conexion.conectar();
             PreparedStatement pst = cn.prepareStatement("select usuario from registros where usuario = '" + username + "'");
             ResultSet rs = pst.executeQuery();
@@ -117,20 +123,22 @@ public class FXMLRegistrarController implements Initializable {
                         alert.setContentText(ex.getMessage());
                         alert.showAndWait();
                     }
-
-                } else {
-                    
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText("Error");
-                    alert.setContentText("debe llenar todos los campos");
-                    alert.showAndWait();
                 }
-            }
+                } 
+                    
+                   
+               
+            
         } catch (SQLException e) {
             System.err.println(e);
             JOptionPane.showMessageDialog(null, "error");
 
         }
-    }
+    }else{
+                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("Error");
+                    alert.setContentText("debe llenar todos los campos");
+                    alert.showAndWait();
+            }
 
-}
+}}
