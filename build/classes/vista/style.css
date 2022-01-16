@@ -1,0 +1,60 @@
+.body{
+	-fx-background-image: url("/image/logo.jpg");
+	-fx-background-size: 100% 100%;
+}
+
+
+.Background{ -fx-background-color: #00FFFF; }
+.Label{
+    -fx-background-color: #008287 ;
+         -fx-border-color: #FFFFFF;
+         -fx-border-width: 2;
+         -fx-text-fill: #FFFFFF;
+         -fx-font-family: "Times New Roman";
+         -fx-font-style: italic;
+         -fx-font-size: 13px;
+         -fx-background-radius: 5 5 5 5;
+         -fx-border-radius: 5 5 5 5;
+}
+.Button { -fx-background-color: #008287 ;
+         -fx-border-color: #FFFFFF;
+         -fx-border-width: 2;
+         -fx-text-fill: #FFFFFF;
+         -fx-font-family: "Times New Roman";
+         -fx-font-style: italic;
+         -fx-font-size: 13px;
+         -fx-background-radius: 5 5 5 5;
+         -fx-border-radius: 5 5 5 5;
+}
+.Button:hover { -fx-background-color:#4fa8fb;
+               -fx-font-size: 13px;
+}
+.Button:pressed { 
+    
+        -fx-background-color: #008287;
+	-fx-text-fill: #4fa8fb;
+	-fx-font-weight: bold;
+}
+.BRegistrar {
+    -fx-background-color: #00FFFF ;
+         -fx-border-color: #00FFFF;
+         -fx-border-width: 2;
+         -fx-text-fill: #FFFFFF;
+         -fx-font-family: "Times New Roman";
+         -fx-font-style: italic;
+         -fx-font-size: 13px;
+         -fx-background-radius: 5 5 5 5;
+         -fx-border-radius: 5 5 5 5;
+}
+.BRegistrar:hover { -fx-background-color:#4fa8fb;
+               -fx-font-size: 13px;
+}
+.BRegistrar:pressed { 
+    
+        -fx-background-color: #008287;
+	-fx-text-fill: #4fa8fb;
+	-fx-font-weight: bold;
+}
+.VBox{
+    -fx-background-color: gray;
+}
