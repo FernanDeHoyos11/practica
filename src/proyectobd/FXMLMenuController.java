@@ -3,23 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vista;
+package proyectobd;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ContextMenu;
 
 /**
  * FXML Controller class
  *
  * @author fernan
  */
-public class FXMLAdministradorController implements Initializable {
-
-    @FXML
-    private ContextMenu conMenu;
+public class FXMLMenuController implements Initializable {
 
     /**
      * Initializes the controller class.

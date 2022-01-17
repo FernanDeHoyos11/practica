@@ -5,7 +5,6 @@
  */
 package proyectobd;
 
-
 import java.awt.Color;
 import java.io.IOException;
 import java.net.URL;
@@ -34,7 +33,7 @@ import javax.swing.JOptionPane;
  * @author fernan
  */
 public class FXMLDocumentController implements Initializable {
-    
+
     @FXML
     private Label label;
     @FXML
@@ -43,96 +42,109 @@ public class FXMLDocumentController implements Initializable {
     private PasswordField txtContraseña;
     @FXML
     private Button btnEntrar;
-    
+
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void entrar(ActionEvent event) {
-    String user = "";
-    String pass = "";
-    
-    user = txtUsuario.getText().trim();
-    pass = txtContraseña.getText().trim();
-    
-     if(!user.equals("") || !pass.equals("")){
-            try{
-            Connection cn = Conexion.conectar();
-            PreparedStatement ps = cn.prepareStatement(
-            "select  Nivel, Estado from registros where usuario = '" + user 
-                    + "' and contraseña = '" + pass + "'");
-            
-            ResultSet rs = ps.executeQuery();
-            
-            if(rs.next()){
-                
-                String Nivel = rs.getString("Nivel");
-                String Estado= rs.getString("Estado");
-                
-                if(Nivel.equalsIgnoreCase("Administrador") && Estado.equalsIgnoreCase("Activo")){
-                  
-                   try {
-       Parent root = FXMLLoader.load(getClass().getResource("/vista/FXMLAdministrador.fxml"));
-        
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.showAndWait();
-        
-        } catch (IOException e) {
-        }
-               
+        String user = "";
+        String pass = "";
+
+        user = txtUsuario.getText().trim();
+        pass = txtContraseña.getText().trim();
+
+        if (!user.equals("") || !pass.equals("")) {
+            try {
+                Connection cn = Conexion.conectar();
+                PreparedStatement ps = cn.prepareStatement(
+                        "select  Nivel, Estado from registros where usuario = '" + user
+                        + "' and contraseña = '" + pass + "'");
+
+                ResultSet rs = ps.executeQuery();
+
+                if (rs.next()) {
+
+                    String Nivel = rs.getString("Nivel");
+                    String Estado = rs.getString("Estado");
+
+                    if (Nivel.equalsIgnoreCase("Administrador") && Estado.equalsIgnoreCase("Activo")) {
+
+                        try {
+                            Parent root = FXMLLoader.load(getClass().getResource("/vista/FXMLAdministrador.fxml"));
+
+                            Scene scene = new Scene(root);
+                            Stage stage = new Stage();
+                            stage.setScene(scene);
+                            stage.showAndWait();
+
+                        } catch (IOException e) {
+                        }
+
+                    } else if (Nivel.equalsIgnoreCase("Usuario") && Estado.equalsIgnoreCase("Activo")) {
+                        try {
+                            Parent root = FXMLLoader.load(getClass().getResource("/vista/FXMLMenu.fxml"));
+
+                            Scene scene = new Scene(root);
+
+                            Stage stage = new Stage();
+                            stage.setTitle("Bienvenido " + user);
+                            stage.setScene(scene);
+                            stage.showAndWait();
+
+                        } catch (IOException e) {
+                        }
+                    }
+
+                } else {
+
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText("Error");
+                    //alert.setTitle("Error de conexion!!\\ncontacte al administrador");
+                    alert.setContentText("Datos de acceso incorrectos");
+                    alert.showAndWait();
+                    txtUsuario.setText("");
+                    txtContraseña.setText("");
+
                 }
-                
-            }else{
-             
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Error");
-            //alert.setTitle("Error de conexion!!\\ncontacte al administrador");
-            alert.setContentText("Datos de acceso incorrectos");
-            alert.showAndWait();  
-             txtUsuario.setText("");
-             txtContraseña.setText("");
-            
-            }
-            }catch(SQLException ex){
+            } catch (SQLException ex) {
                 //System.err.println(ex);
                 //JOptionPane.showMessageDialog(null, "error de conexion!!\ncontacte al administrador");
-                 Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Error");
-            alert.setTitle("Error de conexion!!\\ncontacte al administrador");
-            alert.setContentText(ex.getMessage());
-            alert.showAndWait();
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error");
+                alert.setTitle("Error de conexion!!\\ncontacte al administrador");
+                alert.setContentText(ex.getMessage());
+                alert.showAndWait();
             }
-        }else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText("Error");
             alert.setHeight(500);
             //alert.setTitle("Error de conexion!!\\ncontacte al administrador");
             alert.setContentText("Debe llenar todos los campos");
-            alert.showAndWait(); 
+            alert.showAndWait();
         }
     }
 
     @FXML
-    private void Registrarse(ActionEvent event)  {
+    private void Registrarse(ActionEvent event) {
         try {
-       Parent root = FXMLLoader.load(getClass().getResource("/vista/FXMLRegistrar.fxml"));
-        
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.showAndWait();
+            Parent root = FXMLLoader.load(getClass().getResource("/vista/FXMLRegistrar.fxml"));
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.showAndWait();
         } catch (IOException e) {
         }
-    
+
     }
-    
+
 }
