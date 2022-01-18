@@ -140,6 +140,7 @@ public class FXMLDocumentController implements Initializable {
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
+            stage.setTitle("Registrarse");
             stage.setScene(scene);
             stage.showAndWait();
         } catch (IOException e) {

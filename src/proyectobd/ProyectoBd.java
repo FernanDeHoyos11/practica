@@ -22,8 +22,9 @@ public class ProyectoBd extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/vista/FXMLDocument.fxml"));
         
         Scene scene = new Scene(root);
-       
+        
         stage.setScene(scene);
+        stage.setTitle("Login");
         stage.show();
     }
 
